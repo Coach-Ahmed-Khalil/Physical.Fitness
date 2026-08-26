@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أحمد خليل | مدرب لياقة بدنية وأخصائي تغذية رياضية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0A0A0A;
+    --navy-800:#1C1608;
+    --blue-600:#B8860B;
+    --blue-500:#D4A017;
+    --ice-100:#F5EEDA;
+    --ice-50:#FAF7EE;
+    --white:#FFFFFF;
+    --gold:#E3B23C;
+    --text-dark:#1A1712;
+    --text-muted:#6E6248;
+    --line:#E7DEC2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal',sans-serif;
+    color:var(--text-dark);
+    background:var(--white);
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cairo',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Cairo',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:.5px;color:var(--blue-600);
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block;}
+  h2.section-title{font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--navy-900);margin-bottom:14px;}
+  .section-sub{color:var(--text-muted);font-size:16px;max-width:620px;margin-bottom:48px;}
+
+  /* Nav */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:relative;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Cairo',sans-serif;color:var(--white);}
+  .brand-mark{
+    width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;color:var(--gold);letter-spacing:1px;
+  }
+  .brand-name{font-weight:800;font-size:17px;}
+  .brand-name span{display:block;font-size:11px;font-weight:400;color:#C9B98A;font-family:'Tajawal',sans-serif;}
+  nav.links{display:flex;gap:30px;transition:opacity .2s, transform .2s;}
+  nav.links a{color:#E8DFC5;font-size:14px;font-weight:500;transition:color .2s;}
+  nav.links a:hover{color:var(--gold);}
+  .nav-cta{
+    background:var(--gold);color:var(--navy-900);font-family:'Cairo',sans-serif;font-weight:700;
+    padding:10px 22px;border-radius:30px;font-size:14px;
+  }
+  .burger{display:none;color:var(--white);font-size:22px;background:none;border:none;cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(155deg,var(--navy-900) 0%,var(--navy-800) 55%,#3A2B06 100%);
+    position:relative;overflow:hidden;padding:0;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 20%, rgba(227,178,60,.16), transparent 45%),
+               radial-gradient(circle at 10% 90%, rgba(184,134,11,.14), transparent 50%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:1120px;margin:0 auto;padding:96px 24px 70px;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+  }
+  .hero h1{
+    color:var(--white);font-size:clamp(34px,5vw,54px);font-weight:900;line-height:1.25;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p.lead{color:#DCD3B4;font-size:17px;max-width:520px;margin:22px 0 34px;}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+  .badge{
+    display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);color:#EEE6CC;font-size:13px;
+    padding:8px 14px;border-radius:30px;
+  }
+  .badge b{color:var(--gold);}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold);color:var(--navy-900);font-family:'Cairo',sans-serif;font-weight:800;
+    padding:15px 30px;border-radius:8px;font-size:15px;display:inline-block;transition:transform .2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{
+    border:1.5px solid rgba(255,255,255,.35);color:var(--white);font-family:'Cairo',sans-serif;font-weight:700;
+    padding:14px 28px;border-radius:8px;font-size:15px;display:inline-block;
+  }
+  .hero-photo{position:relative;display:flex;justify-content:center;}
+  .hero-photo img{
+    width:100%;max-width:340px;border-radius:200px/240px;
+    box-shadow:0 30px 60px rgba(0,0,0,.45);
+  }
+
+  /* Stats strip */
+  .stats{
+    background:var(--white);border-bottom:1px solid var(--line);
+    margin-top:-1px;
+  }
+  .stats-inner{
+    max-width:1120px;margin:0 auto;padding:0 24px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    transform:translateY(-46px);
+  }
+  .stat-card{
+    background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:26px 18px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.1);
+  }
+  .stat-card:not(:last-child){border-left:none;}
+  .stat-card b{display:block;font-family:'Cairo',sans-serif;font-size:30px;font-weight:800;color:var(--navy-900);}
+  .stat-card b span{color:var(--blue-600);}
+  .stat-card small{color:var(--text-muted);font-size:13px;}
+  section.about{padding-top:40px;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
+  .about-grid p{color:var(--text-muted);font-size:15.5px;margin-bottom:16px;}
+  .cert-list{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .cert-item{
+    display:flex;align-items:center;gap:14px;background:var(--ice-50);
+    border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  }
+  .cert-item .dot{
+    width:34px;height:34px;border-radius:50%;background:var(--navy-900);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;
+  }
+  .cert-item b{font-family:'Cairo',sans-serif;font-size:14.5px;color:var(--navy-900);}
+  .cert-item small{color:var(--text-muted);font-size:12.5px;}
+
+  /* Services */
+  section.services{background:var(--ice-50);}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .service-card{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;
+    padding:34px 26px;transition:transform .25s, box-shadow .25s;position:relative;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.15);}
+  .service-card.featured{border:1.5px solid var(--gold);}
+  .featured-tag{
+    position:absolute;top:-13px;right:26px;background:var(--gold);color:var(--navy-900);
+    font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:800;padding:5px 14px;border-radius:20px;
+  }
+  .service-icon{
+    width:52px;height:52px;border-radius:12px;background:var(--navy-900);
+    display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--gold);margin-bottom:18px;
+  }
+  .service-card h3{font-size:19px;color:var(--navy-900);margin-bottom:8px;}
+  .service-price{font-family:'Cairo',sans-serif;font-weight:800;color:var(--blue-600);font-size:15px;margin-bottom:14px;}
+  .service-card ul{margin-bottom:22px;}
+  .service-card li{
+    display:flex;gap:8px;align-items:flex-start;color:var(--text-muted);font-size:13.5px;margin-bottom:9px;
+  }
+  .service-card li::before{content:"✓";color:var(--blue-600);font-weight:700;flex-shrink:0;}
+  .service-cta{
+    display:block;text-align:center;padding:11px;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:700;
+    font-size:13.5px;border:1.5px solid var(--navy-900);color:var(--navy-900);
+  }
+  .service-card.featured .service-cta{background:var(--navy-900);color:var(--white);}
+  .price-note{margin-top:26px;color:var(--text-muted);font-size:13px;text-align:center;}
+
+  /* Timeline */
+  .timeline{position:relative;padding-right:26px;border-right:2px solid var(--line);}
+  .tl-item{position:relative;padding-bottom:38px;padding-right:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;right:-38px;top:4px;width:14px;height:14px;
+    border-radius:50%;background:var(--white);border:3px solid var(--blue-600);
+  }
+  .tl-year{font-family:'Cairo',sans-serif;font-weight:800;color:var(--blue-600);font-size:13px;margin-bottom:6px;display:block;}
+  .tl-item h4{font-size:17px;color:var(--navy-900);margin-bottom:8px;}
+  .tl-item ul li{color:var(--text-muted);font-size:14px;margin-bottom:5px;position:relative;padding-right:16px;}
+  .tl-item ul li::before{content:"";position:absolute;right:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+
+  /* Skills */
+  section.skills{background:var(--navy-900);}
+  section.skills .eyebrow{color:var(--gold);}
+  section.skills h2.section-title{color:var(--white);}
+  section.skills .section-sub{color:#C9B98A;}
+  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .skill-chip{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;padding:18px 14px;color:#EEE6CC;font-size:13.5px;font-weight:500;
+    text-align:center;transition:background .2s;
+  }
+  .skill-chip:hover{background:rgba(227,178,60,.16);border-color:var(--gold);}
+
+  /* Achievements */
+  .ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .ach-item{
+    display:flex;gap:16px;background:var(--ice-50);border:1px solid var(--line);
+    border-radius:14px;padding:22px;
+  }
+  .ach-item .num{
+    font-family:'Cairo',sans-serif;font-weight:900;font-size:26px;color:var(--gold);
+    -webkit-text-stroke:1px var(--navy-900);flex-shrink:0;
+  }
+  .ach-item p{color:var(--text-dark);font-size:14.5px;font-weight:500;}
+
+  /* Transformations */
+  section.transform{background:var(--white);}
+  .transform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tr-card{background:var(--ice-50);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s, box-shadow .25s;}
+  .tr-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.12);}
+  .tr-photos{display:grid;grid-template-columns:1fr 1fr;position:relative;}
+  .tr-photo{
+    aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:700;font-family:'Cairo',sans-serif;color:#fff;position:relative;
+  }
+  .tr-photo.before{background:linear-gradient(160deg,#3A3A3A,#141414);}
+  .tr-photo.after{background:linear-gradient(160deg,var(--blue-600),var(--navy-900));}
+  .tr-photo span{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.35);padding:3px 10px;border-radius:20px;font-size:11px;}
+  .tr-vs{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--navy-900);
+    display:flex;align-items:center;justify-content:center;font-family:'Cairo',sans-serif;font-weight:800;
+    font-size:11px;box-shadow:0 4px 10px rgba(0,0,0,.25);z-index:2;
+  }
+  .tr-body{padding:18px 20px;}
+  .tr-body b{display:block;font-family:'Cairo',sans-serif;color:var(--navy-900);font-size:15px;margin-bottom:4px;}
+  .tr-body p{color:var(--text-muted);font-size:13px;}
+  .tr-note{margin-top:24px;color:var(--text-muted);font-size:13px;text-align:center;}
+
+  /* Articles */
+  /* Testimonials (screenshots) */
+  section.testimonials{background:var(--white);}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .testimonial-card{
+    position:relative;border-radius:16px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(160deg,var(--navy-800),var(--navy-900));
+    transition:transform .25s, box-shadow .25s;
+  }
+  .testimonial-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.18);}
+  .testimonial-card img{
+    width:100%;aspect-ratio:9/17;object-fit:cover;display:block;
+  }
+  .testimonial-badge{
+    position:absolute;top:10px;right:10px;z-index:2;
+    background:rgba(0,0,0,.55);color:var(--gold);
+    font-family:'Cairo',sans-serif;font-size:11px;font-weight:800;
+    padding:4px 11px;border-radius:20px;
+  }
+  .testimonials-note{margin-top:22px;color:var(--text-muted);font-size:13px;text-align:center;}
+
+  section.articles{background:var(--ice-50);}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .article-card{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s;}
+  .article-card:hover{transform:translateY(-5px);}
+  .article-cover{height:150px;background:linear-gradient(135deg,var(--navy-900),var(--blue-600));display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--gold);}
+  .article-body{padding:22px;}
+  .article-tag{font-family:'Cairo',sans-serif;font-size:11.5px;font-weight:700;color:var(--blue-600);margin-bottom:8px;display:block;}
+  .article-card h4{font-size:16px;color:var(--navy-900);margin-bottom:10px;line-height:1.5;}
+  .article-card p{font-size:13.5px;color:var(--text-muted);}
+
+  /* Flip cards (article icons) */
+  .flip-card{background:transparent;border:none;padding:0;perspective:1400px;}
+  .flip-card:hover{transform:none;}
+  .flip-inner{
+    position:relative;width:100%;min-height:320px;
+    transition:transform .6s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-front,.flip-back{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border-radius:16px;overflow:hidden;
+  }
+  .flip-front{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;}
+  .flip-front .article-body{flex:1;}
+  .article-cover{cursor:pointer;position:relative;}
+  .article-cover::after{
+    content:"اضغط للتفاصيل";
+    position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+    font-family:'Tajawal',sans-serif;font-size:10px;color:rgba(255,255,255,.7);
+    background:rgba(0,0,0,.25);padding:2px 10px;border-radius:20px;white-space:nowrap;
+  }
+  .flip-back{
+    background:linear-gradient(160deg,var(--navy-900),var(--navy-800));
+    transform:rotateY(180deg);color:#fff;padding:24px;
+    display:flex;flex-direction:column;
+  }
+  .flip-back h4{color:var(--gold);font-size:15.5px;margin-bottom:14px;}
+  .flip-back ul{display:flex;flex-direction:column;gap:9px;overflow-y:auto;flex:1;}
+  .flip-back li{position:relative;padding-right:15px;font-size:12.5px;color:#EDE6CC;line-height:1.6;}
+  .flip-back li::before{content:"";position:absolute;right:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .flip-back-btn{
+    align-self:flex-start;margin-top:14px;background:var(--gold);color:var(--navy-900);
+    border:none;padding:7px 16px;border-radius:20px;font-family:'Cairo',sans-serif;
+    font-weight:700;font-size:12px;cursor:pointer;
+  }
+
+
+  /* Coach Gallery */
+  section.coach-gallery{background:var(--ice-50);}
+  .coach-gallery-header{text-align:center;max-width:700px;margin:0 auto 42px;}
+  .coach-gallery-header .section-sub{margin:0 auto;}
+  .coach-gallery-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;max-width:1050px;margin:0 auto;}
+  .coach-gallery-visual{position:relative;min-height:590px;}
+  .coach-main-photo{position:absolute;top:0;right:0;width:72%;height:520px;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 28px 60px rgba(0,0,0,.18);background:var(--navy-900);}
+  .coach-main-photo img{width:100%;height:100%;object-fit:cover;}
+  .coach-small-photo{position:absolute;left:0;bottom:0;width:48%;height:300px;border-radius:18px;overflow:hidden;border:7px solid var(--ice-50);box-shadow:0 20px 45px rgba(0,0,0,.2);background:var(--navy-900);}
+  .coach-small-photo img{width:100%;height:100%;object-fit:cover;}
+  .coach-photo-label{position:absolute;right:16px;bottom:16px;background:rgba(10,10,10,.82);border:1px solid rgba(227,178,60,.35);color:var(--white);padding:9px 14px;border-radius:10px;font-family:'Cairo',sans-serif;font-size:10px;font-weight:700;backdrop-filter:blur(8px);}
+  .coach-gallery-content .eyebrow{margin-bottom:10px;}
+  .coach-gallery-content h3{font-size:30px;color:var(--navy-900);margin-bottom:16px;}
+  .coach-gallery-content>p{color:var(--text-muted);font-size:15.5px;margin-bottom:24px;}
+  .coach-highlights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;}
+  .coach-highlight{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:15px 16px;}
+  .coach-highlight b{display:block;font-family:'Cairo',sans-serif;color:var(--navy-900);font-size:14px;margin-bottom:3px;}
+  .coach-highlight span{font-size:12px;color:var(--text-muted);}
+  .coach-cta{display:inline-block;background:var(--navy-900);color:var(--white);font-family:'Cairo',sans-serif;font-weight:700;padding:12px 24px;border-radius:8px;transition:transform .2s,background .2s;}
+  .coach-cta:hover{transform:translateY(-2px);background:#201A0A;}
+
+  /* Contact */
+  section.contact{background:linear-gradient(155deg,var(--navy-900),#3A2B06);position:relative;overflow:hidden;}
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .contact-inner h2{color:var(--white);font-size:clamp(26px,3.4vw,36px);font-weight:800;margin-bottom:16px;}
+  .contact-inner > div:first-child p{color:#DCD3B4;font-size:15.5px;margin-bottom:30px;}
+  .contact-list{display:flex;flex-direction:column;gap:16px;}
+  .contact-list a, .contact-list .row{
+    display:flex;align-items:center;gap:14px;color:var(--white);font-size:15px;
+  }
+  .contact-list .ic{
+    width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;
+    font-size:16px;color:var(--gold);flex-shrink:0;
+  }
+  .contact-card{
+    background:var(--white);border-radius:18px;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.35);
+  }
+  .contact-card h3{color:var(--navy-900);font-size:19px;margin-bottom:6px;}
+  .contact-card p.small{color:var(--text-muted);font-size:13.5px;margin-bottom:22px;}
+  .form-row{margin-bottom:14px;}
+  .form-row label{display:block;font-size:12.5px;color:var(--text-muted);margin-bottom:6px;font-weight:500;}
+  .form-row input, .form-row textarea, .form-row select{
+    width:100%;border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;
+    font-family:'Tajawal',sans-serif;font-size:14px;color:var(--text-dark);background:var(--ice-50);
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus{outline:2px solid var(--blue-500);border-color:transparent;}
+  .form-submit{
+    width:100%;background:var(--navy-900);color:var(--white);font-family:'Cairo',sans-serif;
+    font-weight:700;padding:13px;border:none;border-radius:8px;font-size:14.5px;cursor:pointer;margin-top:6px;
+  }
+  .form-note{font-size:12px;color:var(--text-muted);margin-top:10px;text-align:center;}
+
+  footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.08);padding:30px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;color:#A89968;font-size:13px;flex-wrap:wrap;gap:12px;}
+  .footer-inner .brand{color:#E8DFC5;}
+
+  @media (max-width:860px){
+    nav.links{
+      display:none;
+      position:absolute;
+      top:calc(100% + 12px);
+      left:24px;right:24px;
+      flex-direction:column;
+      gap:0;
+      background:rgba(10,10,10,.97);
+      border:1px solid rgba(227,178,60,.25);
+      border-radius:14px;
+      padding:8px;
+      box-shadow:0 24px 50px rgba(0,0,0,.5);
+      z-index:60;
+    }
+    nav.links.open{display:flex;}
+    nav.links a{
+      padding:13px 14px;border-radius:9px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav.links a:last-child{border-bottom:none;}
+    nav.links a:hover{background:rgba(227,178,60,.1);}
+    .burger{display:block;}
+    .hero-inner{grid-template-columns:1fr;text-align:center;}
+    .hero p.lead{margin-inline:auto;}
+    .hero-badges, .hero-ctas{justify-content:center;}
+    .hero-photo{order:-1;}
+    .stats-inner{grid-template-columns:repeat(2,1fr);gap:14px;transform:translateY(0);margin-top:40px;}
+    .about-grid{grid-template-columns:1fr;}
+    .transform-grid{grid-template-columns: 1fr;}
+    .testimonials-grid{grid-template-columns:repeat(2,1fr);}
+    .services-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
+    .ach-grid{grid-template-columns:1fr;}
+    .articles-grid{grid-template-columns:1fr;}
+    .contact-inner{grid-template-columns:1fr;}
+
+    .coach-gallery-layout{grid-template-columns:1fr;gap:30px;}
+    .coach-gallery-visual{min-height:540px;max-width:620px;width:100%;margin:0 auto;}
+    .coach-main-photo{width:76%;height:450px;}
+    .coach-small-photo{width:48%;height:260px;}
+    .coach-gallery-content{text-align:center;}
+    .coach-highlights{text-align:right;}
+    section{padding:60px 0;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">A/K</div>
+      <div class="brand-name">أحمد خليل<span>مدرب لياقة | أخصائي تغذية رياضية</span></div>
+    </div>
+    <nav class="links">
+      <a href="#about">عني</a>
+      <a href="#services">الخدمات</a>
+      <a href="#transform">التحولات</a>
+      <a href="#testimonials">آراء العملاء</a>
+      <a href="#experience">الخبرات</a>
+      <a href="#articles">نصائح</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+    <a href="#contact" class="nav-cta">احجز استشارتك</a>
+    <button class="burger" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>حوّل جسمك وعاداتك مع <em>خطة مبنية عليك أنت</em></h1>
+      <p class="lead">مدرب لياقة بدنية معتمد وأخصائي تغذية رياضية، بخبرة تتجاوز 5 سنوات في تصميم برامج تدريب وتغذية شخصية عن بُعد، لأي هدف من خسارة الدهون لحد بناء العضلات والتحول البدني الكامل.</p>
+      <div class="hero-badges">
+        <span class="badge">🏆 <b>+5</b> سنوات خبرة</span>
+        <span class="badge">👥 <b>+500</b> عميل حقق هدفه</span>
+        <span class="badge">💻 تدريب ومتابعة أونلاين</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">ابدأ رحلتك الآن</a>
+        <a href="#services" class="btn-outline">شوف الباقات</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/WhatsApp Image 2026-08-23 at 6.05.16 PM.jpeg" alt="أحمد خليل - مدرب لياقة بدنية">
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-card"><b><span>+5</span></b><small>سنوات خبرة في التدريب والتغذية</small></div>
+    <div class="stat-card"><b><span>+500</span></b><small>عميل حقق أهدافه</small></div>
+    <div class="stat-card"><b>Online</b><small>تدريب ومتابعة عن بُعد</small></div>
+    <div class="stat-card"><b>2</b><small>شهادات معتمدة</small></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow">نبذة عني</span>
+      <h2 class="section-title">خبرة حقيقية في التدريب والتغذية الرياضية</h2>
+      <p>مدرب لياقة بدنية معتمد وأخصائي تغذية رياضية، ساعدت أكثر من 500 عميل على تحقيق أهدافهم من خلال برامج تدريبية وغذائية مصممة خصيصاً لكل حالة، من التدريب داخل الجيم لحد التدريب والمتابعة أونلاين بالكامل.</p>
+      <p>أسعى دايماً لتقديم نتائج حقيقية، وبناء عادات صحية مستدامة، وتمكين عملائي من الوصول لأفضل نسخة من أنفسهم.</p>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="dot">🎓</div>
+        <div><b>مدرب لياقة بدنية معتمد</b><br><small>شهادة معتمدة في التدريب البدني</small></div>
+      </div>
+      <div class="cert-item">
+        <div class="dot">🥗</div>
+        <div><b>أخصائي تغذية رياضية معتمد</b><br><small>إعداد خطط تغذية رياضية متخصصة</small></div>
+      </div>
+      <div class="cert-item">
+        <div class="dot">💻</div>
+        <div><b>خبرة واسعة في Online Coaching</b><br><small>تدريب ومتابعة عن بُعد لعملاء من أي مكان</small></div>
+      </div>
+      <div class="cert-item">
+        <div class="dot">⚽</div>
+        <div><b>خلفية احترافية في كرة القدم</b><br><small>لاعب سابق، حاصل على جوائز فردية في بطولات ومنافسات</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="coach-gallery" id="coach">
+  <div class="wrap">
+    <div class="coach-gallery-header">
+      <span class="eyebrow">عن المدرب</span>
+      <h2 class="section-title">خبرة، متابعة، واهتمام بكل تفصيلة</h2>
+      <p class="section-sub">
+        مش مجرد برنامج تمرين؛ الهدف إنك تلاقي خطة تناسب حياتك وتقدر تستمر عليها وتحقق بيها هدفك.
+      </p>
+    </div>
+
+    <div class="coach-gallery-layout">
+      <div class="coach-gallery-visual">
+        <div class="coach-main-photo">
+          <img src="img/WhatsApp Image 2026-08-26 at 7.29.18 PM.jpeg" alt="أحمد خليل - مدرب لياقة بدنية">
+          <div class="coach-photo-label">مدرب لياقة بدنية وأخصائي تغذية رياضية</div>
+        </div>
+
+        <div class="coach-small-photo">
+          <img src="img/WhatsApp Image 2026-08-26 at 7.29PM.jpeg" alt="أحمد خليل أثناء التدريب">
+          <div class="coach-photo-label">تدريب ومتابعة باحترافية</div>
+        </div>
+      </div>
+
+      <div class="coach-gallery-content">
+        <span class="eyebrow">أسلوب التدريب</span>
+        <h3>خطة مصممة على هدفك أنت</h3>
+        <p>
+          كل شخص له هدف ومستوى ونمط حياة مختلف. عشان كده بشتغل على تصميم التدريب والتغذية بما يناسب احتياجاتك، مع متابعة مستمرة وتعديل الخطة حسب تطورك.
+        </p>
+
+        <div class="coach-highlights">
+          <div class="coach-highlight">
+            <b>💪 تدريب مخصص</b>
+            <span>برنامج مناسب لمستواك وهدفك</span>
+          </div>
+          <div class="coach-highlight">
+            <b>🥗 تغذية رياضية</b>
+            <span>خطة غذائية تناسب روتينك اليومي</span>
+          </div>
+          <div class="coach-highlight">
+            <b>📊 متابعة مستمرة</b>
+            <span>متابعة تقدمك وتعديل الخطة عند الحاجة</span>
+          </div>
+          <div class="coach-highlight">
+            <b>💻 Online Coaching</b>
+            <span>تقدر تتمرن وتتابع من أي مكان</span>
+          </div>
+        </div>
+
+        <a href="#contact" class="coach-cta">ابدأ رحلتك معايا</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <span class="eyebrow">الخدمات والباقات</span>
+    <h2 class="section-title">اختار الباقة المناسبة لهدفك</h2>
+    <p class="section-sub">باقات مرنة تناسب مختلف الأهداف، من التغذية بس لحد المتابعة الكاملة أونلاين. الأسعار بتتحدد حسب الهدف ومدة الاشتراك.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🥗</div>
+        <h3>خطة تغذية رياضية</h3>
+        <div class="service-price">السعر عند التواصل</div>
+        <ul>
+          <li>خطة غذائية مخصصة لهدفك</li>
+          <li>حسب نمط حياتك ووجباتك المفضلة</li>
+          <li>متابعة وتعديل دوري للخطة</li>
+        </ul>
+        <a href="#contact" class="service-cta">اطلب الباقة</a>
+      </div>
+      <div class="service-card featured">
+        <span class="featured-tag">الأكثر طلباً</span>
+        <div class="service-icon">💪</div>
+        <h3>تدريب + تغذية أونلاين</h3>
+        <div class="service-price">السعر عند التواصل</div>
+        <ul>
+          <li>برنامج تدريبي مخصص أسبوعياً</li>
+          <li>خطة تغذية رياضية متكاملة</li>
+          <li>متابعة مستمرة وتعديل النتائج</li>
+          <li>تواصل مباشر مع المدرب</li>
+        </ul>
+        <a href="#contact" class="service-cta">اطلب الباقة</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📍</div>
+        <h3>تدريب شخصي حضوري</h3>
+        <div class="service-price">السعر عند التواصل</div>
+        <ul>
+          <li>حصص تدريب فردية وجهاً لوجه</li>
+          <li>تقييم أداء وقياسات دورية</li>
+          <li>تصحيح الأداء بشكل مباشر</li>
+        </ul>
+        <a href="#contact" class="service-cta">اطلب الباقة</a>
+      </div>
+    </div>
+    <p class="price-note">* الأسعار والباقات قابلة للتخصيص حسب الهدف ومدة الاشتراك — تواصل معايا لعرض مناسب لك.</p>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="wrap">
+    <span class="eyebrow">مسيرتي المهنية</span>
+    <h2 class="section-title">الخبرات العملية</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">2024 — حتى الآن</span>
+        <h4>مدرب لياقة بدنية أونلاين</h4>
+        <ul>
+          <li>تقديم خدمات التدريب والمتابعة عن بُعد للعملاء</li>
+          <li>تصميم برامج تدريبية وخطط تغذية مخصصة</li>
+          <li>متابعة النتائج وتعديل البرامج لتحقيق أفضل أداء</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2020 — 2024</span>
+        <h4>مدرب لياقة بدنية</h4>
+        <ul>
+          <li>تدريب العملاء داخل الجيم وأونلاين</li>
+          <li>إعداد برامج تدريب تناسب مختلف الأهداف</li>
+          <li>متابعة قياسات الجسم والأداء لتحقيق نتائج مستدامة</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2019 — 2020</span>
+        <h4>مدرب لياقة بدنية</h4>
+        <ul>
+          <li>مساعدة العملاء في الوصول لأهدافهم الرياضية</li>
+          <li>تعليم أساليب التمرين الصحيحة</li>
+          <li>تقديم إرشادات غذائية ونمط حياة صحي</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="wrap">
+    <span class="eyebrow">المهارات</span>
+    <h2 class="section-title">إيه اللي بقدملهولك</h2>
+    <div class="skills-grid">
+      <div class="skill-chip">تدريب شخصي</div>
+      <div class="skill-chip">تدريب ومتابعة أونلاين</div>
+      <div class="skill-chip">إعداد خطط تغذية رياضية</div>
+      <div class="skill-chip">برامج خسارة دهون وبناء عضلات</div>
+      <div class="skill-chip">التحول البدني</div>
+      <div class="skill-chip">تقييم الحالات ومتابعة النتائج</div>
+      <div class="skill-chip">تحفيز وإرشاد</div>
+      <div class="skill-chip">إدارة الوقت والالتزام</div>
+    </div>
+  </div>
+</section>
+
+<section class="achievements">
+  <div class="wrap">
+    <span class="eyebrow">إنجازات</span>
+    <h2 class="section-title">ليه تختارني كمدرب</h2>
+    <div class="ach-grid">
+      <div class="ach-item"><span class="num">01</span><p>خبرة احترافية تتجاوز 5 سنوات في التدريب والتغذية الرياضية</p></div>
+      <div class="ach-item"><span class="num">02</span><p>الإشراف على أكثر من 500 حالة تحول ناجحة</p></div>
+      <div class="ach-item"><span class="num">03</span><p>خبرة واسعة في التدريب والمتابعة عن بُعد (Online Coaching)</p></div>
+      <div class="ach-item"><span class="num">04</span><p>خلفية رياضية احترافية كلاعب كرة قدم سابق، وحاصل على جوائز فردية في بطولات ومنافسات</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="transform" id="transform">
+  <div class="wrap">
+    <span class="eyebrow">نتائج حقيقية</span>
+    <h2 class="section-title">قصص تحول العملاء</h2>
+    <p class="section-sub">صور توضيحية — صور عملاء فعلية (قبل / بعد) .</p>
+    <div class="transform-grid">
+      <div class="tr-card">
+        <div class="tr-photos">
+          <div class="tr-photo before" width = "50%"><span>قبل</span><img src="img/WhatsApp Image 2026-08-23 at 6.54.06 PM.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-photo after" width = "50%"><span>بعد</span><img src="img/WhatsApp Image 2026-08-23 at 6.53.55 PM.jpeg" alt="" ></div>
+          <div class="tr-vs">VS</div>
+        </div>
+        <div class="tr-body">
+          <b>خسارة دهون — 12 أسبوع</b>
+          <p>نزول وزن ملحوظ وتحسن كبير في التكوين الجسماني عن طريق خطة تدريب وتغذية متكاملة.</p>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-photos">
+          <div class="tr-photo before" width = "50%"><span>قبل</span><img src="img/WhatsApp Image 2026-08-23 at 6.66.06 PM.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-photo after" width = "50%"><span>بعد</span><img src="img/WhatsApp Image 2026-08-23 at 6.77.06 PM.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-vs">VS</div>
+        </div>
+        <div class="tr-body">
+          <b>بناء عضلات — 16 أسبوع</b>
+          <p>زيادة في الكتلة العضلية وتحسن ملحوظ في القوة والأداء العام.</p>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-photos">
+          <div class="tr-photo before"><span>قبل</span><img src="img/WhatsApp Image 2026-08-23 at 6.00.06 PM.jpeg" alt=""></div>
+          <div class="tr-photo after"><span>بعد</span><img src="img/WhatsApp Image 2026-08-23 at 6.01.06 PM.jpeg" alt=""></div>
+          <div class="tr-vs">VS</div>
+        </div>
+        <div class="tr-body">
+          <b>تحول بدني كامل — 6 شهور</b>
+          <p>تغيير شامل في الجسم والعادات الغذائية ونمط الحياة بشكل مستدام.</p>
+        </div>
+      </div>
+    </div>
+    <p class="tr-note">* نتائج حقيقية لعملاء مختلفين، وكل رحلة ليها هدف وخطة ونتيجة خاصة بيها.</p>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow">آراء المتدربين</span>
+    <h2 class="section-title">أراء المتدربين</h2>
+    <p class="section-sub">لقطات شاشة حقيقية لآراء وتقييمات بعض العملاء اللي اتدربوا معايا.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="testimonial-badge">رأي 1</span>
+        <img src="img/s1.jpeg" alt="رأي عميل رقم 1">
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-badge">رأي 2</span>
+        <img src="img/s2.jpeg" alt="رأي عميل رقم 2">
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-badge">رأي 3</span>
+        <img src="img/s3.jpeg" alt="رأي عميل رقم 3">
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-badge">رأي 4</span>
+        <img src="img/s4.jpeg" alt="رأي عميل رقم 4">
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-badge">رأي 5</span>
+        <img src="img/s5.jpeg" alt="رأي عميل رقم 5">
+      </div>
+    </div>
+    <p class="testimonials-note">تجارب وآراء حقيقية من عملاء خاضوا رحلة التدريب والمتابعة وشاركوا تجربتهم.</p>
+  </div>
+</section>
+
+<section class="backGround">
+  <div>
+    <img src="img/WhatsApp Image 2026-08-24 at 5.40.33 PM.jpeg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="articles" id="articles">
+  <div class="wrap">
+    <span class="eyebrow">نصائح ومقالات</span>
+    <h2 class="section-title">من مدونتي</h2>
+    <p class="section-sub">مجموعة نصائح مركّزة في التغذية والتدريب، تساعدك تتجنب أكتر الأخطاء اللي بتقف عائق قدام نتيجتك.</p>
+    <div class="articles-grid">
+      <div class="article-card flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="article-cover" onclick="toggleFlip(this)">🍎</div>
+            <div class="article-body">
+              <span class="article-tag">تغذية</span>
+              <h4>5 أخطاء شائعة في التغذية بتبطّئ نتائجك</h4>
+              <p>إزاي تتجنب أكتر الأخطاء الغذائية اللي بتقف عائق قدام تحقيق هدفك.</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <h4>5 أخطاء شائعة في التغذية</h4>
+            <ul>
+              <li>تقليل السعرات بشكل قاسي ومفاجئ من غير خطة، وده بيبطّئ الحرق ويصعّب الاستمرار.</li>
+              <li>إهمال البروتين الكافي في الوجبات، وده بيأثر على الشبع والحفاظ على العضلات.</li>
+              <li>الاعتماد على أكل "دايت" جاهز من غير حساب السعرات الحقيقية فيه.</li>
+              <li>عدم شرب مية كفاية، وده بيأثر على الأداء والإحساس بالجوع.</li>
+              <li>عدم الانتظام في مواعيد وكمية الوجبات، وده بيكسر الروتين ويقلل النتيجة.</li>
+            </ul>
+            <button class="flip-back-btn" onclick="toggleFlip(this)">رجوع</button>
+          </div>
+        </div>
+      </div>
+      <div class="article-card flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="article-cover" onclick="toggleFlip(this)">🏋️</div>
+            <div class="article-body">
+              <span class="article-tag">تدريب</span>
+              <h4>ليه التدريب أونلاين ممكن يكون أفضل من الجيم؟</h4>
+              <p>مميزات المتابعة عن بُعد وإزاي تضمن الالتزام والنتيجة.</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <h4>ليه أونلاين أفضل؟</h4>
+            <ul>
+              <li>مرونة في المواعيد؛ تتمرن في الوقت والمكان اللي يناسبك.</li>
+              <li>متابعة مستمرة وتواصل مباشر مع المدرب أول بأول.</li>
+              <li>برنامج مخصص بالكامل ليك، مش برنامج عام للجميع.</li>
+              <li>توفير وقت ومجهود المشاوير للجيم.</li>
+              <li>تقدر تتمرن بمعدات بسيطة أو حتى بوزن الجسم في البيت.</li>
+            </ul>
+            <button class="flip-back-btn" onclick="toggleFlip(this)">رجوع</button>
+          </div>
+        </div>
+      </div>
+      <div class="article-card flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="article-cover" onclick="toggleFlip(this)">🔥</div>
+            <div class="article-body">
+              <span class="article-tag">تحول بدني</span>
+              <h4>خطوات بناء عادة رياضية مستدامة تدوم بعد التحدي</h4>
+              <p>إزاي تحول أي برنامج تدريبي لعادة حياة مش مجرد تحدي مؤقت.</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <h4>خطوات بناء العادة</h4>
+            <ul>
+              <li>ابدأ بخطوات صغيرة قابلة للتكرار بدل التغيير الجذري المفاجئ.</li>
+              <li>اربط التمرين بوقت ثابت في يومك عشان يبقى جزء من روتينك.</li>
+              <li>حدد هدف واضح وقابل للقياس على المدى القصير.</li>
+              <li>تابع تقدمك بانتظام عشان تحس بالنتيجة وتستمر.</li>
+              <li>متستناش الكمال؛ الاستمرارية أهم من الالتزام المثالي.</li>
+            </ul>
+            <button class="flip-back-btn" onclick="toggleFlip(this)">رجوع</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)">ابدأ اليوم</span>
+      <h2>جاهز تبدأ رحلتك؟</h2>
+      <p>تواصل معايا دلوقتي وهنحدد سوا أفضل خطة تدريب وتغذية تناسب هدفك وظروفك.</p>
+      <div class="contact-list">
+        <a href="tel:01044876437"><span class="ic">📞</span> 01044876437</a>
+        <a href="mailto:ahmedkhalil.coach@gmail.com"><span class="ic">✉️</span> ahmedkhalil.coach@gmail.com</a>
+        <div class="row"><span class="ic">📍</span> القاهرة – مصر</div>
+        <a href="https://facebook.com/profile.php?id=61575763887255" target="_blank" rel="noopener"><span class="ic">📘</span> صفحتي على فيسبوك</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>احجز استشارتك المجانية</h3>
+      <p class="small">املأ البيانات وهتفتح واتساب تلقائي وترسلها ليا</p>
+      <form id="bookingForm">
+        <div class="form-row"><label>الاسم</label><input type="text" name="name" placeholder="اسمك بالكامل" required></div>
+        <div class="form-row"><label>رقم الموبايل</label><input type="tel" name="phone" placeholder="01xxxxxxxxx" required pattern="^01[0-9]{9}$"></div>
+        <div class="form-row"><label>هدفك</label>
+          <select name="goal">
+            <option>خسارة دهون</option>
+            <option>بناء عضلات</option>
+            <option>تحول بدني كامل</option>
+            <option>خطة تغذية فقط</option>
+          </select>
+        </div>
+        <div class="form-row"><label>رسالة (اختياري)</label><textarea name="message" rows="3" placeholder="اكتب أي تفاصيل عن هدفك"></textarea></div>
+        <button class="form-submit" type="submit">ابعت الطلب عبر واتساب</button>
+      </form>
+      <p class="form-note">هيتم فتح واتساب برسالة جاهزة ببياناتك — تأكد إنك بتستخدم الموقع من جهازك اللي عليه واتساب.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="brand">© 2026 أحمد خليل — مدرب لياقة بدنية وأخصائي تغذية رياضية</div>
+    <div>القاهرة، مصر</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WHATSAPP_NUMBER = "201044876437"; // 01044876437 بصيغة دولية (مصر +20 وبدون الصفر الأول)
+  var form = document.getElementById("bookingForm");
+  if(!form) return;
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var goal = form.goal.value;
+    var message = form.message.value.trim();
+
+    if(!name || !phone){
+      alert("من فضلك املأ الاسم ورقم الموبايل");
+      return;
+    }
+
+    var lines = [
+      "طلب استشارة جديد من الموقع 👇",
+      "الاسم: " + name,
+      "رقم الموبايل: " + phone,
+      "الهدف: " + goal
+    ];
+    if(message){
+      lines.push("رسالة: " + message);
+    }
+
+    var text = encodeURIComponent(lines.join("\n"));
+    var waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text;
+
+    window.open(waUrl, "_blank");
+    form.reset();
+  });
+})();
+
+// قائمة الموبايل العائمة (الثلات شرط)
+(function(){
+  var burger = document.querySelector(".burger");
+  var navLinks = document.querySelector("nav.links");
+  if(!burger || !navLinks) return;
+
+  burger.addEventListener("click", function(){
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click", function(){
+      navLinks.classList.remove("open");
+    });
+  });
+
+  document.addEventListener("click", function(e){
+    if(!navLinks.contains(e.target) && !burger.contains(e.target)){
+      navLinks.classList.remove("open");
+    }
+  });
+})();
+
+// كروت المقالات المقلوبة (الضغط على الأيقونة يقلب الكارت)
+function toggleFlip(el){
+  var card = el.closest(".flip-card");
+  if(card) card.classList.toggle("flipped");
+}
+</script>
+
+</body>
+</html>
