@@ -423,9 +423,135 @@
     section{padding:60px 0;}
   }
 
+
+  /* ================= Effects ================= */
+  /* Scroll reveal (uses translate/scale so it never fights hover transforms) */
+  .reveal{opacity:0;}
+  .reveal.in{opacity:1;animation:revealUp .85s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards;}
+  .reveal-zoom.in{animation-name:revealZoom;}
+  @keyframes revealUp{from{opacity:0;translate:0 42px;}to{opacity:1;translate:0 0;}}
+  @keyframes revealZoom{from{opacity:0;translate:0 26px;scale:.9;}to{opacity:1;translate:0 0;scale:1;}}
+  .eyebrow.in::before{animation:lineGrow .8s .3s backwards;}
+  @keyframes lineGrow{from{width:0;}to{width:26px;}}
+
+  /* Scroll progress bar */
+  .scroll-progress{
+    position:fixed;top:0;left:0;right:0;height:3px;z-index:100;
+    background:linear-gradient(90deg,var(--blue-600),var(--gold),#FFF1B8);
+    transform-origin:right;transform:scaleX(0);
+  }
+
+  /* Nav */
+  header.nav{transition:box-shadow .3s;}
+  .nav-inner{transition:padding .3s;}
+  header.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.35);}
+  header.nav.scrolled .nav-inner{padding-top:10px;padding-bottom:10px;}
+  nav.links a{position:relative;}
+  nav.links a::after{
+    content:"";position:absolute;right:0;bottom:-6px;height:2px;width:0;
+    background:var(--gold);transition:width .3s;
+  }
+  nav.links a:hover::after, nav.links a.active::after{width:100%;}
+  nav.links a.active{color:var(--gold);}
+  .brand-mark{animation:ringPulse 3s ease-out infinite;}
+  @keyframes ringPulse{
+    0%{box-shadow:0 0 0 0 rgba(227,178,60,.5);}
+    70%{box-shadow:0 0 0 10px rgba(227,178,60,0);}
+    100%{box-shadow:0 0 0 0 rgba(227,178,60,0);}
+  }
+
+  /* Hero */
+  .hero-inner{position:relative;z-index:1;}
+  .hero::before{
+    content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,178,60,.24),transparent 65%);
+    top:-120px;left:-80px;filter:blur(10px);pointer-events:none;
+    animation:orbFloat 14s ease-in-out infinite alternate;
+  }
+  @keyframes orbFloat{to{transform:translate(180px,120px) scale(1.25);}}
+  .hero h1 em{
+    background:linear-gradient(90deg,#E3B23C,#FFF1B8,#E3B23C);background-size:200% auto;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    animation:shimmer 4s linear infinite;
+  }
+  @keyframes shimmer{to{background-position:200% center;}}
+  .hero-photo::before{
+    content:"";position:absolute;inset:8%;border-radius:50%;z-index:0;
+    background:radial-gradient(circle,rgba(227,178,60,.38),transparent 70%);
+    filter:blur(30px);animation:glow 4s ease-in-out infinite alternate;
+  }
+  @keyframes glow{from{opacity:.4;transform:scale(.9);}to{opacity:1;transform:scale(1.1);}}
+  .hero-photo img{position:relative;z-index:1;animation:floaty 6s ease-in-out infinite;}
+  @keyframes floaty{50%{transform:translateY(-14px);}}
+
+  /* Buttons: shine sweep + pulse */
+  .btn-primary,.nav-cta,.form-submit,.coach-cta{position:relative;overflow:hidden;}
+  .btn-primary::after,.nav-cta::after,.form-submit::after,.coach-cta::after{
+    content:"";position:absolute;top:0;bottom:0;width:60%;left:-80%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);pointer-events:none;
+  }
+  .btn-primary:hover::after,.nav-cta:hover::after,.form-submit:hover::after,.coach-cta:hover::after{animation:shine .8s;}
+  @keyframes shine{to{left:130%;}}
+  .btn-primary{animation:ctaPulse 2.6s ease-out infinite;}
+  @keyframes ctaPulse{
+    0%{box-shadow:0 0 0 0 rgba(227,178,60,.55);}
+    70%{box-shadow:0 0 0 16px rgba(227,178,60,0);}
+    100%{box-shadow:0 0 0 0 rgba(227,178,60,0);}
+  }
+  .btn-outline{transition:background .25s,color .25s,transform .2s;}
+  .btn-outline:hover{background:var(--white);color:var(--navy-900);transform:translateY(-2px);}
+
+  /* Cards & elements */
+  .stat-card{transition:transform .25s,box-shadow .25s;}
+  .stat-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(0,0,0,.16);}
+  .cert-item{transition:transform .25s,border-color .25s,box-shadow .25s;}
+  .cert-item:hover{transform:translateX(-8px);border-color:var(--gold);box-shadow:0 10px 24px rgba(0,0,0,.08);}
+  .coach-highlight{transition:transform .25s,border-color .25s;}
+  .coach-highlight:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .coach-main-photo img,.coach-small-photo img{transition:transform .8s;}
+  .coach-main-photo:hover img,.coach-small-photo:hover img{transform:scale(1.06);}
+  .service-icon{transition:transform .35s,background .35s,color .35s;}
+  .service-card:hover .service-icon{transform:rotate(-8deg) scale(1.12);background:var(--gold);color:var(--navy-900);}
+  .service-card::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(227,178,60,.2),transparent 60%);
+  }
+  .service-card:hover::after{opacity:1;}
+  .service-cta{transition:background .25s,color .25s;}
+  .service-cta:hover{background:var(--gold);color:var(--navy-900);border-color:var(--gold);}
+  .tl-item::before{animation:ringPulse 2.6s ease-out infinite;}
+  .skill-chip{transition:background .2s,transform .25s,border-color .2s;}
+  .skill-chip:hover{transform:translateY(-5px);}
+  .ach-item{transition:transform .25s,box-shadow .25s,border-color .25s;}
+  .ach-item:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.1);border-color:var(--gold);}
+  .tr-photo{overflow:hidden;}
+  .tr-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+  .tr-card:hover .tr-photo img{transform:scale(1.08);}
+  .tr-vs{transition:transform .3s;}
+  .tr-card:hover .tr-vs{transform:translate(-50%,-50%) scale(1.2) rotate(360deg);}
+  .testimonial-card img{transition:transform .6s;}
+  .testimonial-card:hover img{transform:scale(1.05);}
+  .article-cover{transition:font-size .3s;}
+  .article-card:hover .article-cover{font-size:46px;}
+  .form-row input,.form-row textarea,.form-row select{transition:box-shadow .25s,border-color .25s;}
+  .form-row input:focus,.form-row textarea:focus,.form-row select:focus{box-shadow:0 0 0 4px rgba(212,160,23,.18);}
+  .contact-list a{transition:transform .25s;}
+  .contact-list a:hover{transform:translateX(-6px);}
+  .contact-list a:hover .ic{background:var(--gold);color:var(--navy-900);}
+  .contact-list .ic{transition:background .25s,color .25s;}
+
+  @media (max-width:860px){
+    nav.links a::after{display:none;}
+    .hero::before{width:280px;height:280px;}
+  }
+
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
-    *{transition:none !important;}
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+    .reveal{opacity:1 !important;}
+    .scroll-progress{display:none;}
   }
 </style>
 </head>
@@ -754,8 +880,8 @@
       </div>
       <div class="tr-card">
         <div class="tr-photos">
-          <div class="tr-photo before"><span>قبل</span><img src="img/WhatsApp Image 2026-10-18 at 9.49.27 P.jpeg" alt=""></div>
-          <div class="tr-photo after"><span>بعد</span><img src="img/WhatsApp Image 2026-10-18 at 9.49.27 PM.jpeg" alt=""></div>
+          <div class="tr-photo before" width = "50%"><span>قبل</span><img src="img/WhatsApp Image 2026-10-19 at 12.58.56 A.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-photo after" width = "50%"><span>بعد</span><img src="img/WhatsApp Image 2026-10-19 at 12.58.56 AM.jpeg" alt="" width="100%" height="100%"></div>
           <div class="tr-vs">VS</div>
         </div>
         <div class="tr-body">
@@ -993,6 +1119,106 @@ function toggleFlip(el){
   var card = el.closest(".flip-card");
   if(card) card.classList.toggle("flipped");
 }
+
+// ================= Effects =================
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 1) Scroll reveal
+  var sel = [
+    ".hero-inner > div", ".section-sub", ".eyebrow", "h2.section-title", ".about-grid > div p",
+    ".cert-item", ".coach-gallery-header", ".coach-main-photo", ".coach-small-photo",
+    ".coach-gallery-content > *", ".coach-highlight", ".service-card", ".price-note",
+    ".tl-item", ".skill-chip", ".ach-item", ".tr-card", ".tr-note", ".testimonial-card",
+    ".testimonials-note", ".backGround img", ".article-card", ".contact-inner > div", ".stat-card"
+  ].join(",");
+  var zoomSel = ".hero-photo, .coach-main-photo, .coach-small-photo, .tr-card, .testimonial-card, .stat-card, .backGround img";
+  var items = document.querySelectorAll(sel);
+  items.forEach(function(el){
+    el.classList.add("reveal");
+    if(el.matches(zoomSel)) el.classList.add("reveal-zoom");
+    var idx = Array.prototype.indexOf.call(el.parentElement.children, el);
+    el.style.setProperty("--d", (Math.min(idx, 6) * 0.1) + "s");
+  });
+
+  // 2) Counters
+  function countUp(el){
+    var m = el.textContent.trim().match(/^(\+?)(\d+)$/);
+    if(!m || reduce) return;
+    var target = +m[2], prefix = m[1], start = null, dur = 1600;
+    el.textContent = prefix + "0";
+    function step(t){
+      if(!start) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * e);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function runCounters(){
+    document.querySelectorAll(".stat-card b").forEach(function(b){
+      countUp(b.querySelector("span") || b);
+    });
+  }
+
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+    items.forEach(function(el){ io.observe(el); });
+
+    var statsEl = document.querySelector(".stats-inner");
+    if(statsEl){
+      var so = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){ runCounters(); so.disconnect(); }
+      }, {threshold:.4});
+      so.observe(statsEl);
+    }
+  } else {
+    items.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  // 3) Scroll progress + sticky nav shrink + active link
+  var bar = document.createElement("div");
+  bar.className = "scroll-progress";
+  document.body.appendChild(bar);
+  var header = document.querySelector("header.nav");
+  var links = document.querySelectorAll("nav.links a");
+  var ticking = false;
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0) + ")";
+    if(header) header.classList.toggle("scrolled", h.scrollTop > 40);
+    var current = null;
+    links.forEach(function(a){
+      var id = a.getAttribute("href");
+      var sec = id && id.charAt(0) === "#" ? document.querySelector(id) : null;
+      if(sec && sec.getBoundingClientRect().top <= 140) current = a;
+    });
+    links.forEach(function(a){ a.classList.toggle("active", a === current); });
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if(!ticking){ requestAnimationFrame(onScroll); ticking = true; }
+  }, {passive:true});
+  onScroll();
+
+  // 4) Spotlight that follows the mouse on service cards
+  document.querySelectorAll(".service-card").forEach(function(card){
+    card.addEventListener("mousemove", function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      card.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+  });
+})();
 </script>
 
 </body>
