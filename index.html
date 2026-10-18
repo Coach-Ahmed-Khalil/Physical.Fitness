@@ -149,7 +149,10 @@
 
   /* Services */
   section.services{background:var(--ice-50);}
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;}
+  .services-grid > .service-card{grid-column:span 2;}
+  .services-grid > .service-card:nth-child(4){grid-column:2 / span 2;}
+  .services-grid > .service-card:nth-child(5){grid-column:4 / span 2;}
   .service-card{
     background:var(--white);border:1px solid var(--line);border-radius:16px;
     padding:34px 26px;transition:transform .25s, box-shadow .25s;position:relative;
@@ -218,7 +221,10 @@
 
   /* Transformations */
   section.transform{background:var(--white);}
-  .transform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .transform-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;}
+  .transform-grid > .tr-card{grid-column:span 2;}
+  .transform-grid > .tr-card:nth-child(4){grid-column:2 / span 2;}
+  .transform-grid > .tr-card:nth-child(5){grid-column:4 / span 2;}
   .tr-card{background:var(--ice-50);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s, box-shadow .25s;}
   .tr-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.12);}
   .tr-photos{display:grid;grid-template-columns:1fr 1fr;position:relative;}
@@ -395,9 +401,14 @@
     .hero-photo{order:-1;}
     .stats-inner{grid-template-columns:repeat(2,1fr);gap:14px;transform:translateY(0);margin-top:40px;}
     .about-grid{grid-template-columns:1fr;}
-    .transform-grid{grid-template-columns: 1fr;}
+    .transform-grid, .services-grid{grid-template-columns:1fr;}
+    .services-grid > .service-card,
+    .services-grid > .service-card:nth-child(4),
+    .services-grid > .service-card:nth-child(5),
+    .transform-grid > .tr-card,
+    .transform-grid > .tr-card:nth-child(4),
+    .transform-grid > .tr-card:nth-child(5){grid-column:auto;}
     .testimonials-grid{grid-template-columns:repeat(2,1fr);}
-    .services-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:repeat(2,1fr);}
     .ach-grid{grid-template-columns:1fr;}
     .articles-grid{grid-template-columns:1fr;}
@@ -466,7 +477,7 @@
     <div class="stat-card"><b><span>+5</span></b><small>سنوات خبرة في التدريب والتغذية</small></div>
     <div class="stat-card"><b><span>+500</span></b><small>عميل حقق أهدافه</small></div>
     <div class="stat-card"><b>Online</b><small>تدريب ومتابعة عن بُعد</small></div>
-    <div class="stat-card"><b>2</b><small>شهادات معتمدة</small></div>
+    <div class="stat-card"><b>5</b><small>شهادات معتمدة</small></div>
   </div>
 </div>
 
@@ -596,6 +607,30 @@
         </ul>
         <a href="#contact" class="service-cta">اطلب الباقة</a>
       </div>
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>تأهيل إصابات</h3>
+        <div class="service-price">السعر عند التواصل</div>
+        <ul>
+          <li>تأهيل الإصابات من خلال دكتور علاج طبيعي متخصص</li>
+          <li>تقييم الحالة ووضع خطة علاج وتأهيل مناسبة</li>
+          <li>رجوع تدريجي وآمن للتمرين بعد الإصابة</li>
+          <li>تنسيق كامل مع برنامج التدريب والتغذية</li>
+        </ul>
+        <a href="#contact" class="service-cta">اطلب الباقة</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👩‍🏫</div>
+        <h3>تدريب البنات مع مدربة متخصصة</h3>
+        <div class="service-price">السعر عند التواصل</div>
+        <ul>
+          <li>مدربة بنت متخصصة في تدريب البنات</li>
+          <li>متابعة مستمرة وخطة تدريب وتغذية مناسبة</li>
+          <li>كل ده تحت إشراف الكابتن أحمد خليل</li>
+          <li>تدريب حضوري أو أونلاين</li>
+        </ul>
+        <a href="#contact" class="service-cta">اطلب الباقة</a>
+      </div>
     </div>
     <p class="price-note">* الأسعار والباقات قابلة للتخصيص حسب الهدف ومدة الاشتراك — تواصل معايا لعرض مناسب لك.</p>
   </div>
@@ -704,6 +739,28 @@
         <div class="tr-body">
           <b>تحول بدني كامل — 6 شهور</b>
           <p>تغيير شامل في الجسم والعادات الغذائية ونمط الحياة بشكل مستدام.</p>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-photos">
+          <div class="tr-photo before" width = "50%"><span>قبل</span><img src="img/WhatsApp Image 2026-10-18 at 9.47.38 hh.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-photo after" width = "50%"><span>بعد</span><img src="img/WhatsApp Image 2026-10-18 at 9.47.39 nnn.jpeg" alt="" width="100%" height="100%"></div>
+          <div class="tr-vs">VS</div>
+        </div>
+        <div class="tr-body">
+          <b>خسارة دهون — 10 أسابيع</b>
+          <p>نزول ملحوظ في نسبة الدهون مع تحسن في الشكل العام واللياقة.</p>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-photos">
+          <div class="tr-photo before"><span>قبل</span><img src="img/WhatsApp Image 2026-10-18 at 9.49.27 P.jpeg" alt=""></div>
+          <div class="tr-photo after"><span>بعد</span><img src="img/WhatsApp Image 2026-10-18 at 9.49.27 PM.jpeg" alt=""></div>
+          <div class="tr-vs">VS</div>
+        </div>
+        <div class="tr-body">
+          <b>تحول بدني — 5 شهور</b>
+          <p>تغيير واضح في الجسم والعادات الغذائية بخطة تدريب وتغذية مستمرة.</p>
         </div>
       </div>
     </div>
@@ -852,6 +909,8 @@
             <option>بناء عضلات</option>
             <option>تحول بدني كامل</option>
             <option>خطة تغذية فقط</option>
+            <option>تأهيل إصابات</option>
+            <option>تدريب بنات مع مدربة متخصصة</option>
           </select>
         </div>
         <div class="form-row"><label>رسالة (اختياري)</label><textarea name="message" rows="3" placeholder="اكتب أي تفاصيل عن هدفك"></textarea></div>
